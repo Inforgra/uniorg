@@ -576,18 +576,6 @@ class Parser {
           return this.parseSuperscript();
         }
         break;
-      case '_':
-        const offset = this.r.offset();
-        const subscript = restriction.has('subscript') && this.parseSubscript();
-        if (subscript) {
-          return subscript;
-        }
-        this.r.resetOffset(offset);
-
-        if (restriction.has('underline')) {
-          return this.parseUnderline();
-        }
-        break;
       case '*':
         if (restriction.has('bold')) {
           return this.parseBold();
